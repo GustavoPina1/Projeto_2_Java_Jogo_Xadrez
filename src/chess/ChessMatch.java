@@ -258,9 +258,10 @@ public class ChessMatch {
 		if(promoted==null) {
 			throw new IllegalStateException("There is no piece to be prometed");
 		}
-		if(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-			throw new InvalidParameterException("Invalid type");
+		if(!type.equals("B") && !type.equals("B") && !type.equals("R") && !type.equals("Q")) {
+			return promoted;
 		}
+		
 		Position pos=promoted.getChessPosition().toPosition();
 		Piece p = board.removePiece(pos);
 		piecesOnTheBoard.remove(p);
